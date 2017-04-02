@@ -28,19 +28,14 @@ More details here: https://github.com/jcjohnson/torch-rnn#usage
 2. Preprocess the sample data
 
     ```
-    python scripts/preprocess.py \
-    --input_txt data/tiny-shakespeare.txt \
-    --output_h5 data/tiny-shakespeare.h5 \
-    --output_json data/tiny-shakespeare.json
+    PREFIX=data/tiny-shakespeare
+    python scripts/preprocess.py --input_txt ${PREFIX}.txt --output_h5 ${PREFIX}.h5 --output_json ${PREFIX}.json
     ```
 
 3. Train 
 
     ```
-    th train.lua \
-    -input_h5 data/tiny-shakespeare.h5 \
-    -input_json data/tiny-shakespeare.json \
-    -gpu -1
+    th train.lua -input_h5 ${PREFIX} -input_json data/${PREFIX}.json -gpu -1
     ```
 
 4. Sample
